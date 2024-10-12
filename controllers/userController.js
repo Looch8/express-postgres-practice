@@ -17,8 +17,15 @@ async function userCreatePost(req, res) {
 	res.redirect("/");
 }
 
+async function searchUserGet(req, res) {
+	const { username } = req.body;
+	await db.insertUsername(username);
+	res.redirect("/");
+}
+
 module.exports = {
 	getUsers,
 	userCreateGet,
 	userCreatePost,
+	searchUserGet,
 };
