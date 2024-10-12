@@ -1,9 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Search Users</title>
+	</head>
 	<body>
+		<!-- Search Form -->
 		<form action="/" method="GET">
-			<label for="username">Find user: </label>
-			<input type="text" name="username" />
+			<label for="search">Find user: </label>
+			<input type="text" name="search" />
 			<button type="submit">Submit</button>
 		</form>
+
+		<!-- Display Usernames -->
+		<h2>List of Users:</h2>
+		<ul>
+			<% usernames.forEach(user => { %>
+			<li><%= user.username %></li>
+			<% }) %>
+		</ul>
 	</body>
 </html>

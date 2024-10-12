@@ -11,10 +11,10 @@ async function insertUsername(username) {
 	]);
 }
 
-async function searchUsername(username) {
+async function searchUsername(search) {
 	const { rows } = await pool.query(
-		"SELECT * FROM usernames WHERE username =$1",
-		[username]
+		"SELECT * FROM usernames WHERE username ILIKE $1", // ILIKE for case-insensitive search
+		[`%${search}%`] // Use wildcard % for partial matching
 	);
 	return rows;
 }
